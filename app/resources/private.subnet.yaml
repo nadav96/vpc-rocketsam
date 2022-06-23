@@ -1,0 +1,10 @@
+PrivateSubnet:
+  Type: AWS::EC2::Subnet
+  Properties:
+    VpcId: 
+      Ref: MountTargetVPC
+    CidrBlock: 172.31.1.0/24
+    Tags:
+    - Key: Name
+      Value: 
+        Fn::Sub: ${AWS::StackName}-Private
