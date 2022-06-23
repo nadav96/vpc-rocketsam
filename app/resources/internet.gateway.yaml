@@ -1,0 +1,3 @@
+InternetGateway:
+  Type: AWS::EC2::InternetGateway
+  DependsOn: MountTargetVPC

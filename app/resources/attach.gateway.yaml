@@ -1,0 +1,8 @@
+AttachGateway:
+  Type: AWS::EC2::VPCGatewayAttachment
+  # Notice how you can't attach an IGW to a VPC unless both are created:
+  Properties:
+    VpcId:
+      Ref: MountTargetVPC
+    InternetGatewayId: 
+      Ref: InternetGateway
