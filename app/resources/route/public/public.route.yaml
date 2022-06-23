@@ -1,0 +1,9 @@
+PublicRoute1:   # Public route table has direct routing to IGW:
+  Type: AWS::EC2::Route
+  DependsOn: AttachGateway
+  Properties:
+    RouteTableId: 
+      Ref: PublicRouteTable
+    DestinationCidrBlock: 0.0.0.0/0
+    GatewayId: 
+      Ref: InternetGateway  
