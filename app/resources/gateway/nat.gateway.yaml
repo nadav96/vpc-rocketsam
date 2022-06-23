@@ -1,0 +1,13 @@
+# A NAT Gateway:
+NATGateway:
+  Type: AWS::EC2::NatGateway
+  DependsOn: ElasticIPAddress
+  Properties:
+    AllocationId: 
+      Fn::GetAtt: ElasticIPAddress.AllocationId
+    SubnetId: 
+      Ref: PublicSubnet
+    Tags:
+    - Key: Name
+      Value: 
+        Fn::Sub: NAT-${AWS::StackName}

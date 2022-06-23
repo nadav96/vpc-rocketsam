@@ -1,0 +1,8 @@
+PrivateRouteTable:
+  Type: AWS::EC2::RouteTable
+  Properties:
+    VpcId: 
+      Ref: MountTargetVPC
+    Tags:
+    - Key: Name
+      Value: Private
