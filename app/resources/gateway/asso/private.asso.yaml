@@ -1,0 +1,7 @@
+PrivateSubnetARouteTableAssociation:
+  Type: AWS::EC2::SubnetRouteTableAssociation
+  Properties:
+    SubnetId: 
+      Ref: PrivateSubnet
+    RouteTableId: 
+      Ref: PrivateRouteTable
