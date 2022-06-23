@@ -10,3 +10,9 @@ Globals:
             aws_environment: cloud
 
 Resources: {}
+
+Outputs:
+  vpcId:
+    Description: VPC ID
+    Value: 
+      Ref: MountTargetVPC
