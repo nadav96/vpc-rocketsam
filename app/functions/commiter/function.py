@@ -4,6 +4,7 @@ import json
 import os
 from subprocess import run, PIPE
 import requests
+import time
 import socket
 
 
@@ -18,6 +19,15 @@ def handler(event, context):
     hostname = socket.getfqdn()
     ip = socket.gethostbyname(socket.gethostname())
 
+    try:
+        with open("/mnt/efs/{}.txt".format(int(time.time())), "w") as fw:
+            fw.write("hello world")
+    except Exception as e:
+        print("EEEE {}".format(e))
+        return create_response({
+            "e": "323"
+        })
+
 
     url = "http://3.220.57.224"
     timeout = 5
@@ -26,7 +36,8 @@ def handler(event, context):
         print("internet connection available.")
         return create_response({
             "s": 1,
-            "ip": ip
+            "ip": ip,
+            "dir": os.listdir("/mnt/efs")
         })
     except (requests.ConnectionError, requests.Timeout) as exception:
         print(exception)

@@ -1,0 +1,9 @@
+MountTargetResource1:
+  Type: AWS::EFS::MountTarget
+  Properties:
+    FileSystemId: 
+      Ref: FileSystemResource
+    SubnetId: 
+      Ref: PrivateSubnet
+    SecurityGroups:
+    - Fn::GetAtt: MountTargetVPC.DefaultSecurityGroup

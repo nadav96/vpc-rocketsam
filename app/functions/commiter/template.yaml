@@ -11,10 +11,10 @@ VpcConfig:
     - Fn::GetAtt: MountTargetVPC.DefaultSecurityGroup
   SubnetIds:
     - Ref: PrivateSubnet
-#FileSystemConfigs:
-#  - Arn:
-#      Fn::GetAtt: AccessPointResource.Arn
-#    LocalMountPath: /mnt/efs
+FileSystemConfigs:
+  - Arn:
+      Fn::GetAtt: AccessPointResource.Arn
+    LocalMountPath: /mnt/efs
 Policies:
   - Statement:
       - Sid: AWSLambdaVPCAccessExecutionRole
@@ -38,8 +38,8 @@ Policies:
 Tags:
   # SUPER IMPORTANT, THIS FORCE CREATION ORDER 
   # (MountTargetResource1 => HelloWorldFunction)
-  #mountTargetKey:
-  #  Ref: MountTargetResource1
+  mountTargetKey:
+    Ref: MountTargetResource1
 SammyApiEvent:
   authorizerName: null
   path: /commiter

@@ -1,0 +1,16 @@
+FileSystemResource:
+  Type: 'AWS::EFS::FileSystem'
+  Properties:
+    PerformanceMode: generalPurpose
+    Encrypted: true
+    FileSystemTags:
+      - Key: Name
+        Value: TestFileSystem
+    FileSystemPolicy:
+      Version: "2012-10-17"
+      Statement:
+        - Effect: "Allow"
+          Action:
+            - "elasticfilesystem:ClientMount"
+          Principal:
+            AWS: "*"
